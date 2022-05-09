@@ -10,4 +10,5 @@
 //
 
 // Require your theme's custom script files here
-// ...
+
+// =require inview.js
