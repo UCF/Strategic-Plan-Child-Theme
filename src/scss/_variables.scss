@@ -1,2 +1,5 @@
 $animation-transition-duration: .6s;
 $animation-transition-timing-function: cubic-bezier(.3, 1, .6, 1);
+
+$clip-caret-width: 3rem; // match .px-4/.mx-4 * 2
+$clip-caret-height: 1.5rem; // match .py-4/.my-4
