@@ -1,4 +1,4 @@
 .site-main {
   // required for fade-in animations to not cause horizontal scrollbars
-  overflow-x: hidden;
+  overflow-x: clip;
 }
