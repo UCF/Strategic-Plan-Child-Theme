@@ -1,0 +1,28 @@
+@import '../custom-base';
+
+
+.five-year-strategic-plan {
+  // replace with '../img/decorative-lines-2-masked-min.svg' BEFORE putting up for PR
+  background: url('http://wwwqa.ucf.edu/unleashing-potential/files/2022/05/decorative-lines-2-masked-smaller.svg') right bottom no-repeat;
+
+  @include media-breakpoint-down(lg) {
+    background-position: 110% bottom;
+  }
+
+  @include media-breakpoint-down(md) {
+    background: none;
+  }
+}
+
+.header-content {
+  // replace url with '../img/decorative-header-lines.svg' BEFORE putting up for PR
+  background: url('http://wwwqa.ucf.edu/unleashing-potential/files/2022/05/decorative-header-lines.svg') no-repeat right center;
+
+  @include media-breakpoint-down(lg) {
+    background-position: 160% center;
+  }
+
+  @include media-breakpoint-down(md) {
+    background: none;
+  }
+}
