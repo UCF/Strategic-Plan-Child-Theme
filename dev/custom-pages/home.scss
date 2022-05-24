@@ -26,3 +26,59 @@
     background: none;
   }
 }
+
+.core-areas-lines-bg {
+  position: absolute;
+  top: 65px;
+  left: -100px;
+  width: 40%;
+
+  @include media-breakpoint-down(lg) {
+    top: 220px;
+    left: -80px;
+    width: 50%;
+  }
+}
+
+.core-areas-intro {
+  background-color: #262626;
+
+  p {
+    font-size: 1.1em;
+    line-height: 1.6;
+  }
+}
+
+.core-areas-accordion {
+  .card-header {
+    background-color: #fff;
+    border-bottom: none;
+  }
+}
+
+.core-areas-accordion-link {
+  .fa-circle {
+    color: rgba(48, 48, 48, 0.15);
+  }
+
+  span:first-child{
+    flex-basis: 90%;
+  }
+
+  &[aria-expanded="false"],
+  &[aria-expanded=""] {
+    background-color: #fff;
+  }
+
+  &[aria-expanded="true"] {
+    background-color:#fc0;
+  }
+
+  &[aria-expanded="true"] {
+    .fa-chevron-down {
+      transform: rotateX(180deg);
+    }
+  }
+
+}
+
