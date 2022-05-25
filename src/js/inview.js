@@ -12,6 +12,7 @@
   function inviewObserve(entries, observer) {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
+        $(entry.target).trigger('inview');
         toggleVisibleClass(entry.target);
         observer.unobserve(entry.target);
       }
