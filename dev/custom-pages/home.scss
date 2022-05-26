@@ -1,84 +1,33 @@
 @import '../custom-base';
 
-
-.five-year-strategic-plan {
-  // replace with '../img/decorative-lines-2-masked-min.svg' BEFORE putting up for PR
-  background: url('http://wwwqa.ucf.edu/unleashing-potential/files/2022/05/decorative-lines-2-masked-smaller.svg') right bottom no-repeat;
-
-  @include media-breakpoint-down(lg) {
-    background-position: 110% bottom;
+.aspirations-nav {
+  .nav-link.active::after {
+    content: '';
+    border-bottom: 25px solid transparent;
+    border-left: 25px solid #fc0;
+    border-top: 25px solid transparent;
+    display: block;
+    height: 0;
+    position: absolute;
+    right: -23px;
+    top: calc(50% - 25px);
+    width: 0;
   }
 
-  @include media-breakpoint-down(md) {
-    background: none;
-  }
-}
-
-.header-content {
-  // replace url with '../img/decorative-header-lines.svg' BEFORE putting up for PR
-  background: url('http://wwwqa.ucf.edu/unleashing-potential/files/2022/05/decorative-header-lines.svg') no-repeat right center;
-
-  @include media-breakpoint-down(lg) {
-    background-position: 160% center;
-  }
-
-  @include media-breakpoint-down(md) {
-    background: none;
-  }
-}
-
-.core-areas-lines-bg {
-  position: absolute;
-  top: 65px;
-  left: -100px;
-  width: 40%;
-
-  @include media-breakpoint-down(lg) {
-    top: 220px;
-    left: -80px;
-    width: 50%;
+  // Selectors copied over from Athena in order to
+  // ensure styles are overridden correctly
+  .btn-outline-inverse.active:not(:disabled):not(.disabled),
+  .btn-outline-inverse.focus:not(:disabled):not(.disabled),
+  .btn-outline-inverse:active:not(:disabled):not(.disabled),
+  .btn-outline-inverse:focus:not(:disabled):not(.disabled),
+  .btn-outline-inverse:hover:not(:disabled):not(.disabled) {
+    background: #fc0;
+    border-color: #fc0;
   }
 }
 
-.core-areas-intro {
-  background-color: #262626;
-
-  p {
-    font-size: 1.1em;
-    line-height: 1.6;
+.aspirations-tab-content {
+  .card {
+    border-width: 3px;
   }
 }
-
-.core-areas-accordion {
-  .card-header {
-    background-color: #fff;
-    border-bottom: none;
-  }
-}
-
-.core-areas-accordion-link {
-  .fa-circle {
-    color: rgba(48, 48, 48, 0.15);
-  }
-
-  span:first-child{
-    flex-basis: 90%;
-  }
-
-  &[aria-expanded="false"],
-  &[aria-expanded=""] {
-    background-color: #fff;
-  }
-
-  &[aria-expanded="true"] {
-    background-color:#fc0;
-  }
-
-  &[aria-expanded="true"] {
-    .fa-chevron-down {
-      transform: rotateX(180deg);
-    }
-  }
-
-}
-
