@@ -1,0 +1,15 @@
+@mixin fade-in($animation-name) {
+  opacity: 0;
+
+  @include inview() {
+    animation-duration: $animation-transition-duration;
+    animation-fill-mode: both;
+    animation-name: $animation-name;
+    animation-timing-function: $animation-transition-timing-function;
+
+    @media (prefers-reduced-motion) {
+      animation-name: unset;
+      opacity: 1;
+    }
+  }
+}

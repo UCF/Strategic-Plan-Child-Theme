@@ -1,0 +1,60 @@
+//
+// Animation utilities used throughout the theme.
+// See utilities/_keyframes.scss for keyframe definitions
+//
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+
+    .fade-in#{$infix}-down {
+      @include fade-in(fadeInDown);
+    }
+
+    .fade-in#{$infix}-up {
+      @include fade-in(fadeInUp);
+    }
+
+    .fade-in#{$infix}-left {
+      @include fade-in(fadeInLeft);
+    }
+
+    .fade-in#{$infix}-right {
+      @include fade-in(fadeInRight);
+    }
+
+
+    .inview-delay#{$infix}-none {
+      @include inview() {
+        animation-delay: 0ms;
+      }
+    }
+
+    .inview-delay#{$infix}-250ms {
+      @include inview() {
+        animation-delay: 250ms;
+      }
+    }
+
+    .inview-delay#{$infix}-500ms {
+      @include inview() {
+        animation-delay: 500ms;
+      }
+    }
+
+    .inview-delay#{$infix}-750ms {
+      @include inview() {
+        animation-delay: 750ms;
+      }
+    }
+
+    .inview-delay#{$infix}-1000ms {
+      @include inview() {
+        animation-delay: 1000ms;
+      }
+    }
+
+  }
+}
