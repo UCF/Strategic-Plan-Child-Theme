@@ -1,0 +1,33 @@
+@import '../custom-base';
+
+.aspirations-nav {
+  .nav-link.active::after {
+    border-bottom: 25px solid transparent;
+    border-left: 25px solid $ucf-gold;
+    border-top: 25px solid transparent;
+    content: '';
+    display: block;
+    height: 0;
+    position: absolute;
+    right: -23px;
+    top: calc(50% - 25px);
+    width: 0;
+  }
+
+  // Selectors copied over from Athena in order to
+  // ensure styles are overridden correctly
+  .btn-outline-inverse.active:not(:disabled):not(.disabled),
+  .btn-outline-inverse.focus:not(:disabled):not(.disabled),
+  .btn-outline-inverse:active:not(:disabled):not(.disabled),
+  .btn-outline-inverse:focus:not(:disabled):not(.disabled),
+  .btn-outline-inverse:hover:not(:disabled):not(.disabled) {
+    background: $ucf-gold;
+    border-color: $ucf-gold;
+  }
+}
+
+.aspirations-tab-content {
+  .card {
+    border-width: 3px;
+  }
+}

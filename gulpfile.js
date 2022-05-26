@@ -24,6 +24,7 @@ let config = {
     jsPath: './static/js',
     fontPath: './static/fonts'
   },
+  devPath: './dev',
   packagesPath: './node_modules',
   sync: false,
   syncTarget: 'http://localhost/wordpress/'
@@ -98,6 +99,26 @@ function buildJS(src, dest) {
     .pipe(gulp.dest(dest));
 }
 
+// Returns source and destination paths for use by functions that
+// process Dev assets.
+function getDevWatchSrcDest(eventPath, srcExt) {
+  let src;
+  let dest;
+
+  if (eventPath) {
+    src = eventPath;
+    dest = src.slice(0, (src.lastIndexOf('/') > -1 ? src.lastIndexOf('/') : src.lastIndexOf('\\')) + 1);
+  } else {
+    src = `${config.devPath}/**/*.${srcExt}`;
+    dest = config.devPath;
+  }
+
+  return {
+    src: src,
+    dest: dest
+  };
+}
+
 // BrowserSync reload function
 function serverReload(done) {
   if (config.sync) {
@@ -160,6 +181,26 @@ gulp.task('js', gulp.series('es-lint-theme', 'js-build-theme'));
 //
 gulp.task('watch', (done) => {
   serverServe(done);
+
+  // dev SCSS files
+  gulp.watch(`${config.devPath}/**/*.scss`).on('change', (eventPath) => {
+    const srcDest = getDevWatchSrcDest(eventPath, 'scss');
+    const src = srcDest.src;
+    const dest = srcDest.dest;
+
+    lintSCSS(src);
+    return buildCSS(src, dest);
+  });
+
+  // Dev js files
+  gulp.watch([`${config.devPath}/**/*.js`, `!${config.devPath}/**/*.min.js`]).on('change', (eventPath) => {
+    const srcDest = getDevWatchSrcDest(eventPath, 'js');
+    const src = srcDest.src;
+    const dest = srcDest.dest;
+
+    lintJS(src, dest);
+    return buildJS(src, dest);
+  });
 
   gulp.watch(`${config.src.scssPath}/**/*.scss`, gulp.series('css', serverReload));
   gulp.watch(`${config.src.jsPath}/**/*.js`, gulp.series('js', serverReload));
