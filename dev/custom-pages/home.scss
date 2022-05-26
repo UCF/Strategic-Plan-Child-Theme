@@ -2,10 +2,10 @@
 
 .aspirations-nav {
   .nav-link.active::after {
-    content: '';
     border-bottom: 25px solid transparent;
-    border-left: 25px solid #fc0;
+    border-left: 25px solid $ucf-gold;
     border-top: 25px solid transparent;
+    content: '';
     display: block;
     height: 0;
     position: absolute;
@@ -21,8 +21,8 @@
   .btn-outline-inverse:active:not(:disabled):not(.disabled),
   .btn-outline-inverse:focus:not(:disabled):not(.disabled),
   .btn-outline-inverse:hover:not(:disabled):not(.disabled) {
-    background: #fc0;
-    border-color: #fc0;
+    background: $ucf-gold;
+    border-color: $ucf-gold;
   }
 }
 
