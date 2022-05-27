@@ -31,3 +31,33 @@
     border-width: 3px;
   }
 }
+
+.core-areas-accordion {
+  .card-header {
+    background-color: #fff;
+    border-bottom: 0;
+  }
+}
+
+.core-areas-accordion-link {
+  .fa-circle {
+    color: rgba(48, 48, 48, .15);
+  }
+
+  span:first-child {
+    flex-basis: 90%;
+  }
+
+  &[aria-expanded='false'],
+  &[aria-expanded=''] {
+    background-color: #fff;
+  }
+
+  &[aria-expanded='true'] {
+    background-color: #fc0;
+
+    .fa-chevron-down {
+      transform: rotateX(180deg);
+    }
+  }
+}
